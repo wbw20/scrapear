@@ -9,13 +9,16 @@ var start = 'http://www.foodmaster.com/prodBrowse?code=296',
 expand(start, 'a', function(element) {
   var link = element.attr('href');
 
+  console.log(element.text() + '==>');
+
   if (link.indexOf('companies') != -1) {
     expand(link, 'ul.DIRECTORIES-CHILDPRODUCTS > li > a', function(element) {
-      console.log(element.attr('href'));
+      console.log('  ' + element.text());
     });
-
-    console.log('\n\n\n\n\n\n');
   }
+
+  console.log('\n\n');
+
 });
 
 function expand(url, select, cb) {
