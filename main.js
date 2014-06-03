@@ -1,7 +1,7 @@
-var request = require('request')
-  , cheerio = require('cheerio')
-  , async = require('async')
-  , format = require('util').format;
+var request = require('request'),
+    cheerio = require('cheerio'),
+    async = require('async'),
+    format = require('util').format;
 
 var reddits = [ 'programming', 'javascript', 'node' ]
   , concurrency = 2;
