@@ -10,10 +10,10 @@ request(start, function (err, response, body) {
   if (err) throw err;
   var $ = cheerio.load(body);
   async.eachLimit($('a'), concurrency, function (element, next) {
-
-
-    console.log('%s (%s)', $(element).text(), $(element).attr('href'));
-
+    request(start, function (err, response, body) {
+      var $ = cheerio.load(body);
+      console.log('%s (%s)', $(element).text(), $(element).attr('href'));
+    });
     next();
   });
 });
