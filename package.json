@@ -1,0 +1,21 @@
+{
+  "name": "scrapear",
+  "version": "0.0.0",
+  "dependencies": {
+    "request": "latest",
+    "cheerio": "latest",
+    "async": "latest"
+    },
+  "description": "Web scraper for node.",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "scrape",
+    "node",
+    "pear"
+  ],
+  "author": "William B. Wettersten",
+  "license": "MIT"
+}
