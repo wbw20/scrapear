@@ -6,11 +6,19 @@ var request = require('request'),
 var start = 'http://www.foodmaster.com/prodBrowse?code=296',
     concurrency = 2;
 
-expand(start, function(element) {
-  console.log(element.attr('href'));
+expand(start, 'a', function(element) {
+  var link = element.attr('href');
+
+  if (link.indexOf('companies') != -1) {
+    expand(link, 'ul.DIRECTORIES-CHILDPRODUCTS > li > a', function(element) {
+      console.log(element.attr('href'));
+    });
+
+    console.log('\n\n\n\n\n\n');
+  }
 });
 
-function expand(url, cb) {
+function expand(url, select, cb) {
   request(url, function (err, response, body) {
     if (err) {
       console.err('.');
@@ -19,7 +27,7 @@ function expand(url, cb) {
 
     var $ = cheerio.load(body);
 
-    async.eachLimit($('a'), concurrency, function (element, next) {
+    async.eachLimit($(select), concurrency, function (element, next) {
       cb($(element));
       next();
     });
