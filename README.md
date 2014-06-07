@@ -1,4 +1,4 @@
 scrapear
 ========
 
-Pearmarket scraping utility to get data on foods.
+A tool for easy web scraping.
